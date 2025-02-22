@@ -16,6 +16,7 @@ function App() {
   const [showButton, setShowButton] = React.useState(false);
   const [scrollPercentage, setScrollPercentage] = React.useState(0);
 
+  
   React.useEffect(() => {
     const handleScroll = () => {
       const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
