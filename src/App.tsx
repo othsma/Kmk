@@ -13,6 +13,19 @@ import {
 import { useLanguage } from './LanguageContext';
 
 function App() {
+  const [showButton, setShowButton] = React.useState(false);
+  const [scrollPercentage, setScrollPercentage] = React.useState(0);
+
+  React.useEffect(() => {
+    const handleScroll = () => {
+      const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const scrolled = window.scrollY;
+      setScrollPercentage(Math.min((scrolled / totalHeight) * 100, 100));
+      setShowButton(scrolled > 300);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
   const { t, language, setLanguage } = useLanguage();
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
@@ -87,6 +100,50 @@ function App() {
           </div>
         )}
         
+        {showButton && (
+          <button
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            className="fixed bottom-4 right-4 w-14 h-14 flex items-center justify-center bg-white/90 backdrop-blur-sm rounded-full shadow-lg hover:bg-white transition-colors z-50 group"
+            aria-label="Back to top"
+          >
+            <svg className="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
+              {/* Background circle */}
+              <circle
+                cx="50"
+                cy="50"
+                r="45"
+                className="stroke-current text-gray-200"
+                fill="none"
+                strokeWidth="8"
+              />
+              {/* Progress circle */}
+              <circle
+                cx="50"
+                cy="50"
+                r="45"
+                className="stroke-current text-blue-600"
+                fill="none"
+                strokeWidth="8"
+                strokeDasharray="283"
+                strokeDashoffset={283 - (283 * scrollPercentage) / 100}
+                strokeLinecap="round"
+              />
+            </svg>
+            <span className="absolute text-blue-600 group-hover:text-blue-700 transition-colors">
+              <svg
+                className="w-6 h-6 transform"
+                style={{ transform: `rotate(${scrollPercentage * 3.6}deg)` }}
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
+                <path d="M5 10l7-7 7 7M5 14l7 7 7-7" />
+              </svg>
+            </span>
+          </button>
+        )}
+        
         {/* Carousel images */}
         {images.map((image, index) => (
           <div
@@ -100,11 +157,15 @@ function App() {
           />
         ))}
 
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-transparent">
-          <nav className="container mx-auto px-6 py-6">
+        <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-transparent overflow-visible">
+          <nav className={`fixed w-full top-0 z-50 px-4 py-6 backdrop-blur-sm transition-all duration-300 ${
+            scrollPercentage > 1 ? 'bg-white shadow-md' : 'bg-transparent'
+          }`}>
             <div className="flex items-center justify-between">
-              <img src="https://github.com/Othsmatou/kmk2.0/blob/main/src/logo.png?raw=true" alt="KMK VVS Logo" className="h-12 w-auto" />
-              <div className="hidden md:flex space-x-8 text-white">
+              <img src="https://github.com/Othsmatou/kmk2.0/blob/main/src/logo.png?raw=true" alt="KMK VVS Logo" className="h-12 w-auto pl-20" />
+              <div className={`hidden md:flex space-x-8 transition-colors duration-300 pr-24 ${
+            scrollPercentage > 1 ? 'text-gray-800' : 'text-white'
+          }`}>
                 <a 
                   href="#about" 
                   className="hover:text-blue-400 transition"
@@ -139,15 +200,15 @@ function App() {
             </div>
           </nav>
           
-          <div className="container mx-auto px-6 h-[calc(100vh-200px)] flex items-center">
-            <div className="max-w-3xl">
-              <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
+          <div className="container mx-auto px-6 h-[calc(100vh-100px)] flex items-center justify-center ">
+            <div className="max-w-3xl text-center ">
+              <h1 className="text-5xl md:text-6xl font-bold text-white">
                 {t('heroTitle')}
               </h1>
-              <p className="text-xl text-gray-200 mb-8">
+              <p className="text-xl text-gray-200 ">
                 {t('heroSubtitle')}
               </p>
-              <div className="flex flex-col sm:flex-row gap-4">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center" >
                 <button 
                   className="bg-blue-600 text-white px-8 py-3 rounded-full hover:bg-blue-700 transition text-lg"
                   onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}
