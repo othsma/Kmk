@@ -158,15 +158,16 @@ function App() {
           />
         ))}
 
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-transparent overflow-visible">
-          <nav className={`fixed w-full top-0 z-50 px-4 py-6 backdrop-blur-sm transition-all duration-300 ${
+          <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-transparent overflow-visible">
+          <nav className={`fixed w-full top-0 z-50 px-4 py-3 backdrop-blur-sm transition-all duration-300 ${
             scrollPercentage > 1 ? 'bg-white shadow-md' : 'bg-transparent'
           }`}>
             <div className="flex items-center justify-between">
-              <img src="https://github.com/Othsmatou/kmk2.0/blob/main/src/logo.png?raw=true" alt="KMK VVS Logo" className="h-12 w-auto pl-20" />
+            <img src="https://github.com/Othsmatou/kmk2.0/blob/main/src/logo.png?raw=true" alt="KMK VVS Logo" className="h-12 w-auto pl-20" />
               <div className={`hidden md:flex space-x-8 transition-colors duration-300 pr-24 ${
             scrollPercentage > 1 ? 'text-gray-800' : 'text-white'
           }`}>
+            
                 <a 
                   href="#about" 
                   className="hover:text-blue-400 transition"
@@ -202,14 +203,14 @@ function App() {
           </nav>
           
           <div className="container mx-auto px-6 h-[calc(100vh-100px)] flex items-center justify-center ">
-            <div className="max-w-3xl text-center ">
+            <div className="max-w-3xl text-center mt-56">
               <h1 className="text-5xl md:text-6xl font-bold text-white">
                 {t('heroTitle')}
               </h1>
-              <p className="text-xl text-gray-200 ">
+              <p className="text-xl text-gray-200 mt-12 ">
                 {t('heroSubtitle')}
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center" >
+              <div className="flex flex-col sm:flex-row gap-4 justify-center mt-24" >
                 <button 
                   className="bg-blue-600 text-white px-8 py-3 rounded-full hover:bg-blue-700 transition text-lg"
                   onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}
@@ -227,7 +228,7 @@ function App() {
           </div>
           
           {/* Carousel indicators */}
-          <div className="absolute bottom-30 left-1/2 transform -translate-x-1/2 flex space-x-2">
+          <div className="absolute bottom-12 pb-2 left-1/2 transform -translate-x-1/2 flex space-x-2">
             {images.map((_, index) => (
               <button
                 key={index}
@@ -242,8 +243,8 @@ function App() {
       </div>
 
       {/* Main content wrapper with negative margin for floating effect */}
-      <div className="relative -mt-20 pb-20">
-        <div className="container mx-auto px-6">
+      <div className="relative -mt-12">
+        <div className="container mx-auto ">
           {/* Floating sections wrapper */}
           <div className="grid grid-cols-1 gap-1">
             {/* Services Section */}
