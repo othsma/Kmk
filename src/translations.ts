@@ -62,10 +62,10 @@ export const translations: Translations = {
     email: 'Din Email',
     message: 'Din Besked',
     sendMessage: 'Send Besked',
-    openingHours: 'Man - Fre: 8:00 - 17:00',
+    adress: 'Fredensvej 17, 3400 Hillerød, Denmark',
 
     // Footer
-    copyright: '© 2024 KMK VVS. Alle rettigheder forbeholdes.',
+    copyright: '© 2025 KMK VVS. Alle rettigheder forbeholdes.',
     language: 'Sprog',
   },
   en: {
@@ -125,10 +125,10 @@ export const translations: Translations = {
     email: 'Your Email',
     message: 'Your Message',
     sendMessage: 'Send Message',
-    openingHours: 'Mon - Fri: 8:00 - 17:00',
+    adress: 'Fredensvej 17, 3400 Hillerød, Denmark',
 
     // Footer
-    copyright: '© 2024 KMK VVS. All rights reserved.',
+    copyright: '© 2025 KMK VVS. All rights reserved.',
     language: 'Language',
   }
 };

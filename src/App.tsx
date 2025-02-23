@@ -8,7 +8,7 @@ import {
   PaintBucket,
   Phone,
   Mail,
-  Clock,
+  MapPin,
 } from 'lucide-react';
 import { useLanguage } from './LanguageContext';
 
@@ -163,9 +163,10 @@ function App() {
             scrollPercentage > 1 ? 'bg-white shadow-md' : 'bg-transparent'
           }`}>
             <div className="flex items-center justify-between">
-            <img src="https://github.com/Othsmatou/kmk2.0/blob/main/src/logo.png?raw=true" alt="KMK VVS Logo" className="h-12 w-auto pl-20" />
+            {scrollPercentage > 1 ? <img src="https://github.com/Othsmatou/kmk2.0/blob/main/src/altLogo.png?raw=true" alt="KMK VVS Logo" className="h-12 w-auto pl-20" /> : <img src="https://github.com/Othsmatou/kmk2.0/blob/main/src/logo.png?raw=true" alt="KMK VVS Logo" className="h-12 w-auto pl-20" />}
               <div className={`hidden md:flex space-x-8 transition-colors duration-300 pr-24 ${
             scrollPercentage > 1 ? 'text-gray-800' : 'text-white'
+          
           }`}>
             
                 <a 
@@ -392,15 +393,15 @@ function App() {
               <div className="space-y-6">
                 <div className="flex items-center">
                   <Phone className="w-6 h-6 mr-4" />
-                  <span>+46 123 456 789</span>
+                  <span>+45 40 60 94 01</span>
                 </div>
                 <div className="flex items-center">
                   <Mail className="w-6 h-6 mr-4" />
-                  <span>info@kmkvvs.com</span>
+                  <span>kmk@kmkvvs.dk</span>
                 </div>
                 <div className="flex items-center">
-                  <Clock className="w-6 h-6 mr-4" />
-                  <span>{t('openingHours')}</span>
+                  <MapPin className="w-6 h-6 mr-4" />
+                  <span>{t('adress')}</span>
                 </div>
               </div>
               
