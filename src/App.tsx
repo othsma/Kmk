@@ -159,7 +159,7 @@ function App() {
         ))}
 
           <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-transparent overflow-visible">
-          <nav className={`fixed w-full top-0 z-50 px-4 py-3 backdrop-blur-sm transition-all duration-300 ${
+          <nav className={`fixed w-full top-0 z-50 px-20 py-3 backdrop-blur-sm transition-all duration-300 ${
             scrollPercentage > 1 ? 'bg-white shadow-md' : 'bg-transparent'
           }`}>
             <div className="flex items-center justify-between">
@@ -203,11 +203,11 @@ function App() {
           </nav>
           
           <div className="container mx-auto px-6 h-[calc(100vh-100px)] flex items-center justify-center ">
-            <div className="max-w-3xl text-center mt-56">
-              <h1 className="text-5xl md:text-6xl font-bold text-white">
+            <div className="max-w-3xl text-center mt-28">
+              <h1 className="text-5xl md:text-7xl font-bold text-white">
                 {t('heroTitle')}
               </h1>
-              <p className="text-xl text-gray-200 mt-12 ">
+              <p className="text-2xl text-gray-200 mt-12 ">
                 {t('heroSubtitle')}
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center mt-24" >
