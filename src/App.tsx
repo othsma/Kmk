@@ -407,7 +407,8 @@ function App() {
               
             </div>
             <div>
-              <form className="space-y-4">
+            <form className="space-y-4" data-netlify="true" name="contact">
+                <input type="hidden" name="form-name" value="contact" />
                 <input
                   type="text"
                   placeholder={t('name')}
