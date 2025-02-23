@@ -413,16 +413,19 @@ function App() {
                   type="text"
                   placeholder={t('name')}
                   className="w-full px-4 py-3 rounded-lg bg-gray-800 border border-gray-700 text-white placeholder-gray-400 focus:outline-none focus:border-blue-500"
+                  name="name"
                 />
                 <input
                   type="email"
                   placeholder={t('email')}
                   className="w-full px-4 py-3 rounded-lg bg-gray-800 border border-gray-700 text-white placeholder-gray-400 focus:outline-none focus:border-blue-500"
+                  name="email"
                 />
                 <textarea
                   placeholder={t('message')}
                   rows={4}
                   className="w-full px-4 py-3 rounded-lg bg-gray-800 border border-gray-700 text-white placeholder-gray-400 focus:outline-none focus:border-blue-500"
+                  name="message"
                 ></textarea>
                 <button className="w-full bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition">
                   {t('sendMessage')}
